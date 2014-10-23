@@ -1,0 +1,107 @@
+html {
+ background-color: #99CC66; 
+}
+
+.quiz-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  max-width: 800px;
+  background: #F7F7F7;
+  padding: 25px 15px 25px 10px;
+  font: 12px Georgia, "Times New Roman", Times, serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 5px;
+}
+
+.quiz-form #head {
+  padding: 0px 0px 10px 40px;
+  display: block;
+  border-bottom: 1px solid #E4E4E4;
+  color: #888;
+}
+
+.quiz-form #head h1 {
+  font-size: 30px;
+}	
+
+.quiz-form #head p {
+  font-size: 15px;
+}
+
+.quiz-form img {
+	width: 220px;
+	height: 150px;
+}
+
+.quiz-form label {
+  display: block;
+  margin: 0px;
+	font-size: 16px;
+}
+
+.quiz-form label span {
+  float: left;
+  width: 20%;
+  text-align: right;
+  padding-right: 10px;
+  margin-top: 10px;
+  color: #888;
+}
+
+.quiz-form ul li {
+	list-style: none;
+	text-align: left;
+	font-size: 16px;
+}
+
+.quiz-form p {
+	font-size: 14px;
+}
+
+.quiz-form ol li{
+	padding: 5px;
+	font-size: 14px;
+}
+
+.quiz-form input[type="text"],
+.quiz-form input[type="email"],
+.quiz-form textarea,
+.quiz-form select {
+  border: 1px solid #DADADA;
+  color: #888;
+  height: 30px;
+  margin-bottom: 16px;
+  margin-right: 6px;
+  margin-top: 2px;
+  outline: 0 none;
+  padding: 3px 3px 3px 5px;
+  width: 70%;
+  font-size: 16px;
+  line-height: 15px;
+  box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+.quiz-form textarea {
+  padding: 5px 3px 3px 5px;
+  height: 100px;
+}
+
+.quiz-form .button {
+  width: 25%;
+  background: #993333;
+  border: none;
+  padding: 10px 25px 10px 25px;
+  color: #FFF;
+  box-shadow: 1px 1px 5px #B6B6B6;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px #9E3F3F;
+  cursor: pointer;
+}
+
+.quiz-form .button:hover {
+  background: #2f4f4f;
+}
+
