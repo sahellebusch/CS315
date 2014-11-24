@@ -10,12 +10,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-define('FACTS_FILENAME', 'facts.txt');
-define('WORLD_WONDER_QUESTION', 'world_wonder.txt');
-define('COASTLINE_QUESTION', 'coastline.txt');
-define('FLAG_QUESTION', 'flag.txt');
-define('ANSWERS_FILENAME', 'answers.txt');
-define('COUNTRIES_FILENAME', 'countries.txt');
+define('FACTS_FILENAME', '/txt/facts.txt');
+define('WORLD_WONDER_QUESTION', '/txt/world_wonder.txt');
+define('COASTLINE_QUESTION', '/txt/coastline.txt');
+define('FLAG_QUESTION', '/txt/flag.txt');
+define('ANSWERS_FILENAME', '/txt/answers.txt');
+define('COUNTRIES_FILENAME', '/txt/countries.txt');
 define('UNANSWERED', 'unanswered');
 
 // get two questions from facts.txt file
