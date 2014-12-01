@@ -46,12 +46,12 @@ endif;
   <head>
     <meta charset="utf-8" />
     <meta name="author" content="Sean Hellebusch" />
-    <!-- <link rel="stylesheet" href="user.css"> -->
     <title>New User</title>
   </head>
 
   <body>
   <?php if(!$success): ?>
+    <h2>Create A new User</h2>
     <form method="post" action="new_user.php" >
       <p>
         <label for="first_name">First name:</label>
@@ -77,7 +77,7 @@ endif;
     </form>
   <?php else: ?>
     <h1>Success!</h1>
-    <p><a href="user_data.html">User data</a></p>
+    <p><a href="user_data.php">User data</a></p>
   <?php endif; ?>
   </body>
 </html>

@@ -36,7 +36,7 @@ foreach( $users as $urow ):
   $age       += intval($diff_array->format("%m")) / 12;
   $age       += intval($diff_array->format("%Y"));
   ?>
-  <tr class="inner">
+  <tr>
     <td><?= $urow["first_name"] ?></td>
     <td><?= $urow["last_name"] ?></td>
     <td><?= $urow["email"] ?></td>

@@ -3,25 +3,10 @@
 window.onload = attachEventHandlers;
 
 function attachEventHandlers() {
-  getusers();
   document.getElementById("first").onclick = sortusers;
   document.getElementById("last").onclick  = sortusers;
   document.getElementById("email").onclick = sortusers;
   document.getElementById("age").onclick   = sortusers;
-}
-
-function getusers() {
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function() {
-          if(request.readyState == 4 && request.status == 200) {
-            document.getElementById("users").innerHTML = request.responseText;
-          }
-        };
-        request.open( "GET", 
-                      "getusers.php",
-                      true );
-        request.send( null );
 }
 
 function sortusers() {
