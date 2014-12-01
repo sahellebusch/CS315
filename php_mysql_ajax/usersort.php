@@ -1,4 +1,10 @@
 <?php
+/*
+ * Author   => Sean Hellebusch | sahellebusch@gmail.com
+ * Date     => 12.1.2014
+ *
+ * Script to sort users using the column headers as a GET sort option
+ */
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -8,13 +14,20 @@ include( 'pdo_connector.php' );
 $connector = new PDO_Connector();
 $pdo = $connector->connect();
 
-$query = "SELECT * FROM user ORDER BY first_name";
-$stmnt = $pdo->prepare($query);
+if( !isset( $_GET["option"] ) || !preg_match( '/^[A-Za-z_]+$/', $_GET["option"] )):
+  exit();
+endif;
 
-$stmnt->execute();
-$users = $stmnt->fetchAll();
-?>
-<?php
+$query = "SELECT * FROM user ORDER BY " . $_GET["option"];
+
+try {
+  $stmnt = $pdo->prepare($query);
+  $stmnt->execute();
+  $users = $stmnt->fetchAll();
+} catch(PDOException $e) {
+    echo 'error: ' . $e->getMessage();
+}
+
 foreach( $users as $urow ): 
   $bd         = new DateTime($urow["birthday"]);
   $now        = new DateTime();

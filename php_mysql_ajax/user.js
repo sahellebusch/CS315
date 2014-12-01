@@ -3,50 +3,50 @@
 window.onload = attachEventHandlers;
 
 function attachEventHandlers() {
-  usersbyfirst();
-  document.getElementById("first").onclick = usersbyfirst;
-  document.getElementById("last").onclick = usersbylast;
-  document.getElementById("email").onclick = usersbyemail;
-  document.getElementById("age").onclick = usersbyage;
-
+  getusers();
+  document.getElementById("first").onclick = sortusers;
+  document.getElementById("last").onclick  = sortusers;
+  document.getElementById("email").onclick = sortusers;
+  document.getElementById("age").onclick   = sortusers;
 }
 
-function usersbyfirst() {
+function getusers() {
         var request = new XMLHttpRequest();
 
+        request.onreadystatechange = function() {
+          if(request.readyState == 4 && request.status == 200) {
+            document.getElementById("users").innerHTML = request.responseText;
+          }
+        };
         request.open( "GET", 
-                      "usersbyfirst.php",
-                      false );
+                      "getusers.php",
+                      true );
         request.send( null );
-        document.getElementById("users").innerHTML = request.responseText;
 }
 
-function usersbylast() {
-        var request = new XMLHttpRequest();
+function sortusers() {
+  var option = this.innerHTML;
+  if(option != "") {
+    if(option.match(/First/) == "First")
+      option = "first_name";
+    if(option.match(/Last/) == "Last")
+      option = "last_name";
+    if(option.match(/Email/) == "Email")
+      option = "email";
+    if(option.match(/Age/) == "Age")
+      option = "birthday";
 
-        request.open( "GET", 
-                      "usersbylast.php",
-                      false );
-        request.send( null );
-        document.getElementById("users").innerHTML = request.responseText;
-}
-
-function usersbyemail() {
-        var request = new XMLHttpRequest();
-
-        request.open( "GET", 
-                      "usersbyemail.php",
-                      false );
-        request.send( null );
-        document.getElementById("users").innerHTML = request.responseText;
-}
-
-function usersbyage() {
-        var request = new XMLHttpRequest();
-
-        request.open( "GET", 
-                      "usersbyage.php",
-                      false );
-        request.send( null );
-        document.getElementById("users").innerHTML = request.responseText;
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function() {
+          if(request.readyState == 4 && request.status == 200) {
+            document.getElementById("users").innerHTML = request.responseText;
+          }
+        };
+          request.open( "GET", 
+                        "usersort.php?option=" + option,
+                        false );
+          request.send( null );
+          document.getElementById("users").innerHTML = request.responseText;
+      }
 }
