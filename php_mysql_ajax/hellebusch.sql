@@ -1,0 +1,8 @@
+CREATE TABLE user(
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  birthday DATETIME NOT NULL,
+  PRIMARY KEY (email)
+);  
