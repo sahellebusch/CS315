@@ -14,6 +14,9 @@ include( 'pdo_connector.php' );
 
 $success     = FALSE;
 $errors      = FALSE;
+$name_regex = '/^[a-zA-Z]+(\-[A-Za-z]+)?$/';
+$email_regex = '/^[A-za-z+_\-\.\%]+\@[A-Z-a-z]+\.[A-Za-z]{2,4}$/';
+$date_regex = '/^\d{4}-\d{2}-\d{2}$/';
 
 if(isset($_POST["first_name"])
   && isset($_POST["last_name"])
@@ -24,6 +27,10 @@ if(isset($_POST["first_name"])
   $last_name  = htmlspecialchars($_POST["last_name"]);
   $birthday   = htmlspecialchars($_POST["birthday"]);
   $email      = htmlspecialchars($_POST["email"]);
+
+  $errors = !preg_match($name_regex, $first_name) ||
+            !preg_match($email_regex, $email) ||
+            !preg_match($date_regex, $birthday);
 
   try {
     $connector = new PDO_Connector();
@@ -78,7 +85,7 @@ endif;
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" 
         required="required" 
-        patttern="/^[A-za-z+_\-\.\%]+\@[A-Z-a-z]+\.[A-Za-z]{2,4}$"/>
+        patttern="^[A-za-z+_\-\.\%]+\@[A-Z-a-z]+\.[A-Za-z]{2,4}$"/>
       </p>
 
       <p>
