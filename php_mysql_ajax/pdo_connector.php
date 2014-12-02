@@ -13,7 +13,7 @@ class PDO_Connector {
             $dbuser = 'hellebusch';
             $dbpass = 'admin';
             // Connect to DB
-            $pdo = new PDO("mysql:host=Enterprise;dbname=test;charset=utf8", "hellebusch", "admin");
+            $pdo = new PDO("mysql:host=Enterprise;dbname=test;charset=utf8", $dbuser, $dbpass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
             return $pdo;
         } catch(PDOException $e) {

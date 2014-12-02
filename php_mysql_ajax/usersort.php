@@ -13,12 +13,20 @@ include( 'pdo_connector.php' );
 
 $connector = new PDO_Connector();
 $pdo = $connector->connect();
+$op_regex = "/^\w+$/";
 
 if( !isset( $_GET["option"] ) || !preg_match( '/^[A-Za-z_]+$/', $_GET["option"] )):
   exit();
 endif;
 
-$query = "SELECT * FROM user ORDER BY " . $_GET["option"];
+$option =  $_GET["option"];
+$option = htmlspecialchars($option);
+
+if(!preg_match($op_regex, $option)):
+  exit();
+endif;
+
+$query = "SELECT * FROM user ORDER BY " . $option;
 
 try {
   $stmnt = $pdo->prepare($query);

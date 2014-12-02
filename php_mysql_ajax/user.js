@@ -30,8 +30,7 @@ function sortusers() {
         };
           request.open( "GET", 
                         "usersort.php?option=" + option,
-                        false );
+                        true );
           request.send( null );
-          document.getElementById("users").innerHTML = request.responseText;
       }
 }
