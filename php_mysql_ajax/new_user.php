@@ -14,9 +14,9 @@ include( 'pdo_connector.php' );
 
 $success     = FALSE;
 $errors      = FALSE;
-$name_regex = '/^[a-zA-Z]+(\-[A-Za-z]+)?$/';
+$name_regex  = '/^[a-zA-Z]+(\-[A-Za-z]+)?$/';
 $email_regex = '/^[A-za-z+_\-\.\%]+\@[A-Z-a-z]+\.[A-Za-z]{2,4}$/';
-$date_regex = '/^\d{4}-\d{2}-\d{2}$/';
+$date_regex  = '/^\d{4}-\d{2}-\d{2}$/';
 
 if(isset($_POST["first_name"])
   && isset($_POST["last_name"])
