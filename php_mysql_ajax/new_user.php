@@ -10,7 +10,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-include "pdo_Connector.php";
+include( 'pdo_connector.php' );
 
 $success = FALSE;
 
